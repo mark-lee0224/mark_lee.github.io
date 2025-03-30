@@ -57,3 +57,92 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 音乐播放器设置
+    const songs = [
+        {
+            element: document.getElementById('song1'),
+            audio: new Audio('music/song1.mp3'),
+            button: document.getElementById('song1').querySelector('.play-button')
+        },
+        {
+            element: document.getElementById('song2'),
+            audio: new Audio('music/song2.mp3'),
+            button: document.getElementById('song2').querySelector('.play-button')
+        }
+    ];
+
+    // 当前播放的音乐
+    let currentlyPlaying = null;
+
+    // 为每首歌添加点击事件
+    songs.forEach(song => {
+        song.element.addEventListener('click', function() {
+            const isPlaying = song.button.classList.contains('playing');
+
+            // 停止其他正在播放的音乐
+            songs.forEach(s => {
+                s.audio.pause();
+                s.audio.currentTime = 0;
+                s.button.classList.remove('playing');
+                s.button.innerHTML = '▶';
+            });
+
+            // 播放或暂停当前音乐
+            if (!isPlaying) {
+                song.audio.play();
+                song.button.classList.add('playing');
+                song.button.innerHTML = '⏸';
+                currentlyPlaying = song;
+            } else {
+                song.audio.pause();
+                song.button.classList.remove('playing');
+                song.button.innerHTML = '▶';
+                currentlyPlaying = null;
+            }
+        });
+
+        // 音乐播放结束时的处理
+        song.audio.addEventListener('ended', function() {
+            song.button.classList.remove('playing');
+            song.button.innerHTML = '▶';
+            currentlyPlaying = null;
+        });
+    });
+});
+
+async function loadContent(url) {
+    try {
+        const response = await fetch(url);
+        const html = await response.text();
+
+        // 创建一个临时的 DOM 元素来解析 HTML
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+
+        // 获取新页面的 body 内容
+        const newContent = doc.body.innerHTML;
+
+        // 更新当前页面的 body 内容
+        document.body.innerHTML = newContent;
+
+        // 重新加载脚本
+        const scripts = document.getElementsByTagName('script');
+        for (let script of scripts) {
+            if (script.src) {
+                const newScript = document.createElement('script');
+                newScript.src = script.src;
+                document.body.appendChild(newScript);
+            }
+        }
+
+        // 更新页面标题
+        document.title = doc.title;
+
+        // 更新 URL，但不刷新页面
+        window.history.pushState({}, '', url);
+    } catch (error) {
+        console.error('Error loading content:', error);
+    }
+}
