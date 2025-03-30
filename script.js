@@ -165,3 +165,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// 卡片翻转效果
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.about-card');
+
+    cards.forEach(card => {
+        card.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {  // 只在移动端生效
+                this.classList.toggle('flipped');
+            }
+        });
+    });
+});
