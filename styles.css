@@ -393,6 +393,30 @@ footer {
 
 /* 响应式优化 */
 @media (max-width: 768px) {
+    .nav-content {
+        padding: 0.8rem 1rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+        white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+        background: var(--accent-color);
+        color: white;
+    }
+
     .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
