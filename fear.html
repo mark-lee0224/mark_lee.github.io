@@ -3,41 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>惧内指数 - Mark_Lee的个人主页</title>
+    <title>惧内 - Mark_Lee的个人主页</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .fear-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fear-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .fear-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .fear-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .fear-text {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease backwards;
+            position: relative;
+            text-align: left;
+            font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+
+        .fear-text p {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .fear-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .fear-text::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 3.5rem;
+            color: var(--accent-color);
+            opacity: 0.2;
+            font-family: "Ma Shan Zheng", cursive;
+        }
+
+        .fear-text::after {
+            content: '"';
+            position: absolute;
+            bottom: -20px;
+            right: 20px;
+            font-size: 3.5rem;
+            color: var(--accent-color);
+            opacity: 0.2;
+            font-family: "Ma Shan Zheng", cursive;
+        }
+
+        .fear-quote {
+            font-size: 2rem;
+            line-height: 1.6;
+            color: var(--accent-color);
+            font-style: italic;
+            margin-top: 2rem;
+            padding: 2rem;
+            border-left: 4px solid var(--accent-color);
+            text-align: left;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 90%;
+            left: 10%;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .back-button:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-2px) rotate(15deg);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button::before {
+            content: '⚔️';
+            font-size: 1.5rem;
+            filter: grayscale(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .back-button:hover::before {
+            transform: scale(1.1);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .fear-content {
+                padding: 2rem;
+            }
+
+            .fear-text {
+                font-size: 1.3rem;
+            }
+
+            .back-button {
+                top: 85%;
+                left: 5%;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-content">
-            <div class="logo">Mark_Lee</div>
-            <div class="nav-links">
-                <a href="index.html">返回首页</a>
-            </div>
-        </div>
-    </nav>
+    <a href="index.html" class="back-button"></a>
 
-    <section class="about-section">
-        <div class="about-content">
-            <div class="about-text">
-                <h2>惧内指数</h2>
-                <p>这不是恐惧，这是尊重与爱的体现...</p>
-                <div class="about-quote">
-                    <p>惧内不是软弱，而是智慧的选择</p>
-                </div>
-                <div class="thoughts-grid">
-                    <div class="thought-card">
-                        <h3>关于尊重</h3>
-                        <p>尊重是爱的基础，也是惧内的前提。</p>
-                    </div>
-                    <div class="thought-card">
-                        <h3>关于智慧</h3>
-                        <p>惧内不是妥协，而是生活的智慧。</p>
-                    </div>
-                    <div class="thought-card">
-                        <h3>关于幸福</h3>
-                        <p>惧内指数越高，幸福指数越高。</p>
-                    </div>
-                </div>
+    <section class="fear-section">
+        <div class="fear-content">
+            <div class="fear-text">
+                <p>惧内是优质大龄单身汉的追求的朴素追求，背后是个女权主义者的荣誉感。</p>
+                <p>若论开始意识到自己是，大概是从下面这句话开始：</p>
+                <p>他觉得你婆婆妈妈，实际上是他油盐不进。</p>
             </div>
         </div>
     </section>
