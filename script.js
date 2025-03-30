@@ -146,3 +146,22 @@ async function loadContent(url) {
         console.error('Error loading content:', error);
     }
 }
+
+// 汉堡菜单功能
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', function() {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // 点击导航链接时关闭菜单
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+});
