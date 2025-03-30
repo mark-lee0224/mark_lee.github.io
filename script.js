@@ -172,7 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (quoteInner) {
         quoteInner.addEventListener('click', function() {
-            this.classList.toggle('flipped');
             if (window.innerWidth <= 768) {  // 只在移动端生效
                 this.classList.toggle('flipped');
             }

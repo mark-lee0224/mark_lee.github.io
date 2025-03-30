@@ -33,40 +33,82 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: var(--background-color);
+    background: rgba(255, 255, 255, 0.95);
     padding: 1rem 0;
     box-shadow: 0 2px 10px var(--shadow-color);
+    backdrop-filter: blur(10px);
 }
 
 .nav-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: var(--text-color);
+    font-family: "Ma Shan Zheng", cursive;
+    letter-spacing: 0.1em;
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.logo:hover::after {
+    transform: scaleX(1);
 }
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .nav-links a {
     color: var(--text-color);
     text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
 .nav-links a:hover {
     color: var(--accent-color);
+}
+
+.nav-links a:hover::after {
+    width: 80%;
 }
 
 /* 汉堡菜单按钮 */
@@ -86,6 +128,7 @@ body {
     height: 3px;
     background-color: var(--text-color);
     transition: all 0.3s ease;
+    border-radius: 3px;
 }
 
 /* 移动端样式 */
@@ -100,13 +143,14 @@ body {
         right: -100%;
         width: 70%;
         height: 100vh;
-        background: var(--background-color);
+        background: rgba(255, 255, 255, 0.98);
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 2rem;
         transition: right 0.3s ease;
         box-shadow: -2px 0 10px var(--shadow-color);
+        backdrop-filter: blur(10px);
     }
 
     .nav-links.active {
@@ -115,6 +159,7 @@ body {
 
     .nav-links a {
         font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
     }
 
     /* 汉堡菜单动画 */
@@ -205,10 +250,12 @@ h2 {
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 12px var(--shadow-color);
     backdrop-filter: blur(5px);
+    cursor: pointer;
 }
 
 .interest-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-color);
 }
 
 .interest-card i {
@@ -230,13 +277,13 @@ h2 {
 }
 
 a.interest-card {
-    text-decoration: none;  /* 移除下划线 */
-    color: inherit;  /* 继承父元素的颜色 */
+    text-decoration: none;
+    color: inherit;
 }
 
 a.interest-card:hover {
-    text-decoration: none;  /* 悬停时也不显示下划线 */
-    color: inherit;  /* 悬停时保持颜色不变 */
+    text-decoration: none;
+    color: inherit;
 }
 
 /* 技能标签 */
@@ -292,11 +339,14 @@ a.interest-card:hover {
     border-radius: 12px;
     transition: all 0.3s ease;
     font-size: 1.44rem;
+    cursor: pointer;
 }
 
 .contact-item:hover {
     background-color: var(--hover-bg);
     border-color: var(--accent-color);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-color);
 }
 
 .contact-item i {
@@ -1068,4 +1118,32 @@ footer {
 
 .quote-inner.flipped {
     transform: rotateX(180deg);
+}
+
+/* 网页端悬浮翻转 */
+@media (min-width: 769px) {
+    .about-quote:hover .quote-inner {
+        transform: rotateX(180deg);
+    }
+}
+
+/* 移动端点击翻转 */
+@media (max-width: 768px) {
+    .quote-inner.flipped {
+        transform: rotateX(180deg);
+    }
+}
+
+/* 网页端悬浮翻转 */
+@media (min-width: 769px) {
+    .interest-card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* 移动端点击翻转 */
+@media (max-width: 768px) {
+    .interest-card.flipped {
+        transform: translateY(-5px);
+    }
 }
