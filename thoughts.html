@@ -7,14 +7,70 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <style>
+        .back-button {
+            position: fixed;
+            top: 90%;
+            left: 10%;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .back-button:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-2px) rotate(15deg);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button::before {
+            content: '⚔️';
+            font-size: 1.5rem;
+            filter: grayscale(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .back-button:hover::before {
+            transform: scale(1.1);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .back-button {
+                top: 85%;
+                left: 5%;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <a href="index.html" class="martial-back-btn">
-        <div class="sword-icon">
-            <i class="fas fa-gavel"></i>
-        </div>
-        <div class="sword-effect"></div>
-    </a>
+    <a href="index.html#about" class="back-button"></a>
     <section class="thoughts-section">
         <div class="thoughts-content">
             <div class="thoughts-left">
