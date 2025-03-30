@@ -410,10 +410,6 @@ footer {
     cursor: pointer;
 }
 
-.about-quote:hover .quote-inner {
-    transform: rotateX(180deg);
-}
-
 .quote-front, .quote-back {
     position: absolute;
     width: 100%;
@@ -1058,4 +1054,18 @@ footer {
 
 .about-card.flipped .back {
     transform: rotateY(0);
+}
+
+@media (max-width: 768px) {
+    .quote-inner {
+        transform-style: preserve-3d;
+    }
+
+    .quote-inner.flipped {
+        transform: rotateX(180deg);
+    }
+}
+
+.quote-inner.flipped {
+    transform: rotateX(180deg);
 }
