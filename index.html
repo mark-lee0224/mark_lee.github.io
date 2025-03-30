@@ -3,58 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>张三的个人主页</title>
+    <title>Mark_Lee的个人主页</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <nav class="nav-bar">
+    <nav class="navbar">
         <div class="nav-content">
-            <div class="logo">LKW</div>
-            <ul class="nav-links">
-                <li><a href="#about">关于我</a></li>
-                <li><a href="#interests">兴趣爱好</a></li>
-                <li><a href="#skills">技能</a></li>
-                <li><a href="#contact">联系我</a></li>
-            </ul>
+            <div class="logo">Mark_Lee</div>
+            <div class="nav-links">
+                <a href="#about">关于我</a>
+                <a href="#interests">兴趣爱好</a>
+                <a href="#skills">技能</a>
+                <a href="#contact">互联网自留地</a>
+            </div>
         </div>
     </nav>
 
-    <header class="hero">
+    <header class="hero-section">
         <div class="hero-content">
-            <img src="images/头像.png" alt="Mark_Lee的头像" class="avatar">
             <h1>Mark_Lee</h1>
-            <p class="subtitle">深夜独酌游侠 | 惧内翘楚新锐</p>
-            <p class="tagline">幽默的前提是智慧，Brainy is the New Sexy ✨</p>
+            <p class="subtitle">深夜独酌游侠 | 惧内翘楚潜力股</p>
         </div>
     </header>
 
-    <section id="about" class="section">
-        <div class="container">
-            <h2>关于我</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="about-intro">此人头脑并不简单，但是只能理解简单的东西。</p>
-                    <div class="about-quote">
-                        <blockquote>
-                            "Less is more。"
-                        </blockquote>
-                    </div>
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>关于我</h2>
+                <p>此人头脑并不简单，但是只能理解简单的东西</p>
+                <div class="about-quote">
+                    <p>幽默的前提是智慧，Brainy is the New Sexy</p>
                 </div>
                 <div class="about-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">73%</span>
-                        <span class="stat-label">独思指数</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">惧内指数</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">37%</span>
-                        <span class="stat-label">醉心指数</span>
-                    </div>
+                    <a href="thoughts.html" class="stat-item">
+                        <div class="stat-number">73%</div>
+                        <div class="stat-label">独思指数</div>
+                    </a>
+                    <a href="fear.html" class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">惧内指数</div>
+                    </a>
+                    <a href="potential.html" class="stat-item">
+                        <div class="stat-number">37%</div>
+                        <div class="stat-label">醉心指数</div>
+                    </a>
                 </div>
+            </div>
+            <div class="about-image">
+                <img src="images/头像.png" alt="Mark_Lee的头像" class="avatar">
             </div>
         </div>
     </section>
@@ -104,7 +100,7 @@
 
     <section id="contact" class="section">
         <div class="container">
-            <h2>联系我</h2>
+            <h2>互联网自留地</h2>
             <div class="contact-grid">
                 <a href="mailto:zhangsan@example.com" class="contact-item">
                     <i class="fas fa-envelope"></i>
