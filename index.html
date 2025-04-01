@@ -7,6 +7,59 @@
     <title>Mark_Lee的个人主页</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .hero-content {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .fade-in-title {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease-out forwards;
+            margin-bottom: 1rem;
+        }
+
+        .fade-in-subtitle {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease-out forwards 0.8s;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 添加悬停图片样式 */
+        .hover-image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hover-image {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 10px;
+            max-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .hover-image-container:hover .hover-image {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -28,8 +81,8 @@
 
     <header class="hero-section">
         <div class="hero-content">
-            <h1>Mark_Lee</h1>
-            <p class="subtitle">深夜独酌游侠 | 惧内翘楚新锐</p>
+            <h1 class="fade-in-title">Mark_Lee</h1>
+            <p class="subtitle fade-in-subtitle">深夜独酌游侠 | 惧内翘楚新锐</p>
         </div>
     </header>
 
@@ -103,12 +156,16 @@
                     </a>
                 </div>
                 <div class="skill-badge">
-                    <span class="skill-name">Debate</span>
-                    <div class="skill-stars">⭐⭐⭐</div>
+                    <a href="debate.html" target="_self" rel="noopener noreferrer" class="skill-link" style="text-decoration: none; color: inherit;">
+                        <span class="skill-name">Debate</span>
+                        <div class="skill-stars">⭐⭐⭐</div>
+                    </a>
                 </div>
                 <div class="skill-badge">
-                    <span class="skill-name">Writing</span>
-                    <div class="skill-stars">⭐⭐</div>
+                    <a href="writing.html" target="_self" rel="noopener noreferrer" class="skill-link" style="text-decoration: none; color: inherit;">
+                        <span class="skill-name">Writing</span>
+                        <div class="skill-stars">⭐⭐</div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -140,7 +197,10 @@
                 <h3>近期动态</h3>
                 <ul>
                     <li>2025.03 发布《肄业4周年前夕白皮书》</li>
-                    <li>2021.09 获得裸辞初体验</li>
+                    <li class="hover-image-container">
+                        2021.09 获得裸辞初体验
+                        <img src="images/裸辞.png" alt="裸辞初体验" class="hover-image">
+                    </li>
                 </ul>
             </div>
         </div>
