@@ -59,12 +59,29 @@
         .hover-image-container:hover .hover-image {
             display: block;
         }
+
+        /* 确保列表项正确换行 */
+        .recent-updates ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .recent-updates li {
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* 移除logo链接下划线 */
+        .logo {
+            text-decoration: none;
+            color: inherit;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-content">
-            <div class="logo">Mark_Lee</div>
+            <a href="#hero" class="logo">Mark_Lee</a>
             <div class="menu-toggle">
                 <span></span>
                 <span></span>
@@ -79,7 +96,7 @@
         </div>
     </nav>
 
-    <header class="hero-section">
+    <header id="hero" class="hero-section">
         <div class="hero-content">
             <h1 class="fade-in-title">Mark_Lee</h1>
             <p class="subtitle fade-in-subtitle">深夜独酌游侠 | 惧内翘楚新锐</p>
@@ -162,8 +179,8 @@
                     </a>
                 </div>
                 <div class="skill-badge">
-                    <a href="writing.html" target="_self" rel="noopener noreferrer" class="skill-link" style="text-decoration: none; color: inherit;">
-                        <span class="skill-name">Writing</span>
+                    <a href="thinking.html" target="_self" rel="noopener noreferrer" class="skill-link" style="text-decoration: none; color: inherit;">
+                        <span class="skill-name">Thinking</span>
                         <div class="skill-stars">⭐⭐</div>
                     </a>
                 </div>
@@ -175,7 +192,7 @@
         <div class="container">
             <h2>互联网自留地</h2>
             <div class="contact-grid">
-                <a href="mailto:1428285862@qq.com" class="contact-item">
+                <a href="https://mp.weixin.qq.com/s/AfnlvPLU0ZJ30JXlZ1lTBg" class="contact-item" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-envelope"></i>
                     <span>Eight Hundred</span>
                 </a>
@@ -194,9 +211,12 @@
     <footer>
         <div class="container">
             <div class="recent-updates">
-                <h3>近期动态</h3>
+                <h3>一些体验</h3>
                 <ul>
-                    <li>2025.03 发布《肄业4周年前夕白皮书》</li>
+                    <li class="hover-image-container">
+                        2025.04 即将肄业4周年
+                        <img src="images/呆伯特.png" alt="肄业四周年前夕白皮书" class="hover-image">
+                    </li>
                     <li class="hover-image-container">
                         2021.09 获得裸辞初体验
                         <img src="images/裸辞.png" alt="裸辞初体验" class="hover-image">

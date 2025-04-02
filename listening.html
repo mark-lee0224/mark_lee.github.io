@@ -127,6 +127,8 @@
         .quote p:nth-child(4) { animation-delay: 1.0s; }
         .quote p:nth-child(5) { animation-delay: 1.2s; }
         .quote p:nth-child(6) { animation-delay: 1.4s; }
+        .quote p:nth-child(7) { animation-delay: 1.6s; }
+        .quote p:nth-child(8) { animation-delay: 1.8s; }
 
         .quote-author {
             margin-top: 20px;
@@ -137,7 +139,7 @@
             letter-spacing: 0.02em;
             opacity: 0;
             animation: fadeIn 0.5s ease-out forwards;
-            animation-delay: 1.6s;
+            animation-delay: 2.0s;
         }
 
         h1 {
@@ -164,18 +166,11 @@
         }
 
         h1 span::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #1d1d1f;
-            transition: width 0.3s ease;
+            display: none;
         }
 
         h1:hover span::after {
-            width: 100%;
+            display: none;
         }
 
         .back-button {
@@ -236,7 +231,7 @@
             }
 
             h1:hover span::after {
-                width: calc(100% - 20px);
+                display: none;
             }
 
             .quote p {
